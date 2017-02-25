@@ -1,0 +1,24 @@
+/node_modules/
+/dist/
+/app/css/
+/**/*.psd
+/**/Thumbs.db
+# ignore everything in this directory
+/*
+ 
+# but not these
+!.gitignore
+!.bowerrc
+!gulpfile.js
+!package.json
+!README.md
+!assets/
+!core/
+
+# ignore cache and config
+core/cache/*
+core/config/config.inc.php
+config.core.php
+manager/config.core.php
+connectors/config.core.php
+.DS_Store
