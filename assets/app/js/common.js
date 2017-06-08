@@ -1,22 +1,22 @@
-$(document).ready(function(){	
+$(document).ready(function(){
 
 	var touch = $('.touch-menu');
     var menu_mobile = $('.menu-mobile');
     var subMenuMobile = $('.sub-menu-mobile');
     var price_mobile = $('.price-mobile');
- 
+
        $(touch).on('click', function(e) {
        e.preventDefault();
        menu_mobile.slideToggle();
        subMenuMobile.hide(150);
    });
-    
+
 
        		$(price_mobile).on('click', function(e){
        			e.preventDefault();
        			subMenuMobile.slideToggle();
        		})
-       		
+
     $(window).resize(function(){
         var wid = $(window).width();
         if(wid > 774 && menu.is(':hidden')) {
@@ -59,7 +59,8 @@ $(document).ready(function(){
    		 	$(".hidden-photo-awards").slideToggle("slow");
    		 	$(this).animate({top: ($(this).css('top') != '150px' ? '150px' : '-10px')}, 500);
    });
-   		 $(".main p").equalHeights();
+   		 $(".main").equalHeights();
+
 
    		 function handler(event) {
    		 	var target = $(event.target);
@@ -67,7 +68,7 @@ $(document).ready(function(){
    		 		target.next().slideToggle("slow");
    		 	}
    		 }
-		$(".description-mobile button").click(handler); 
+		$(".description-mobile button").click(handler);
 
 		$('.popup-with-form').magnificPopup({
 		   type: 'inline',
@@ -75,9 +76,23 @@ $(document).ready(function(){
 		   removalDelay: 300,
 		   mainClass: 'mfp-fade'
 		});
-		  $("#phone").mask("+7(999) 999-9999");
+		  $("#af_phone").mask("+7(999) 999-9999");
 
 		  $("#head-2").css({
 		  	"min-height":"190px"
 		  });
-});
+
+       function currentDate() {
+        var Data = new Date();
+        var year = Data.getFullYear();
+        var month = Data.getMonth();
+        var day = Data.getDate();
+        if(month<10)month="0"+month;
+        if(day<10)day="0"+day;
+        $("#main-4 .text-item").prepend("<p class=current-date>Опубликованно: "+year+"."+month+"."+day);
+      }
+      currentDate();
+      //ajax form sent
+
+
+      });

@@ -32,7 +32,7 @@ gulp.task('scripts', function() {
 
 gulp.task('browser-sync', function() {
 	browserSync.init({
-		proxy: 'ut.site/modx-2.5.5-pl',
+		proxy: "http://ut.site/modx-2.5.5-pl/manager",
 		notify: false,
 		// tunnel: true,
 		// tunnel: "projectmane", //Demonstration page: http://projectmane.localtunnel.me
@@ -53,7 +53,7 @@ gulp.task('sass', function() {
 
 gulp.task('watch', ['sass', 'scripts', 'browser-sync'], function() {
 	gulp.watch('assets/app/sass/**/*.scss', ['sass']);
-	gulp.watch(['assets/app/libs/**/*.js', 'assets/app/js/common.js'], ['scripts']);
+	gulp.watch(['libs/**/*.js', 'assets/app/js/common.js'], ['scripts']);
 	gulp.watch('assets/app/*.html', browserSync.reload);
 });
 
@@ -107,3 +107,4 @@ gulp.task('removedist', function() { return del.sync('dist'); });
 gulp.task('clearcache', function () { return cache.clearAll(); });
 
 gulp.task('default', ['watch']);
+
